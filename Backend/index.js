@@ -1,12 +1,17 @@
 import express from "express"
 import mongoose from "mongoose";
 import "dotenv/config";
-import path from 'path';
 import userRoute from "./routes/user.route.js";
 import authRoute from "./routes/auth.routes.js";
 import postRoute from "./routes/post.routes.js"
 import commentRoute from "./routes/comment.routes.js";
 import cookieParser from "cookie-parser";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
+import path from 'path';
+const __dirname = path.resolve();
+
+
 const app=express();
 mongoose.connect( process.env.CONNECTION_URL)
 .then(()=>{
